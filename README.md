@@ -1,36 +1,95 @@
-# AI-powered Fake News Detector
+Fake News Detection System
 
-Starter project scaffold for an AI-powered fake news detector.
+An end-to-end Fake News Detection system that classifies news articles as Real or Fake using Natural Language Processing (NLP) and Machine Learning. The project includes a trained ML model and a Flask-based web application for real-time inference.
 
-Quick start
+Overview
 
-1. Create and activate a virtual environment (you already have `venv` in this workspace):
+This project implements a binary text classification pipeline to detect misinformation in news content. It covers the complete ML workflow, including data preprocessing, feature extraction, model training, evaluation, and deployment via a web interface.
 
-   ```powershell
-   & .\venv\Scripts\Activate.ps1
-   pip install -r requirements.txt
-   ```
+Key Features
 
-2. Place dataset CSVs `Fake.csv` and `True.csv` in the repository root (or update paths in `src/data.py`).
+Binary classification of news articles (Real / Fake)
 
-3. Train a model:
+NLP-based text preprocessing
 
-   ```powershell
-   python -m src.train --data-dir . --output-dir models
-   ```
+TF-IDF feature extraction
 
-4. Predict from a saved model:
+Logistic Regression classifier
 
-   ```powershell
-   python predict.py "Some news text to classify"
-   ```
+Flask web interface for real-time predictions
 
-Project layout
+Pre-trained model included
 
-- `train.py` - existing simple training script (kept for reference)
-- `predict.py` - small inference CLI
-- `requirements.txt` - Python dependencies
-- `src/` - recommended code modules
-- `models/` - default output folder for trained model and vectorizer
+Tech Stack
 
-Feel free to ask me to extend this into a web app, dataset download script, or Hugging Face transformer-based classifier.
+Programming Language: Python
+
+Machine Learning / NLP: Scikit-learn, TF-IDF
+
+Backend: Flask
+
+Frontend: HTML, CSS
+
+Model Serialization: Joblib
+
+Project Structure
+fake-news-detector/
+├── app.py
+├── train.py
+├── fake_news_model.pkl
+├── vectorizer.pkl
+├── Fake.csv
+├── True.csv
+├── templates/
+│   └── index.html
+└── README.md
+
+Setup and Installation
+
+Environment Setup
+python -m venv venv
+venv\Scripts\activate
+python -m pip install numpy pandas scikit-learn nltk joblib flask
+Dataset
+
+The project uses the Fake and Real News Dataset from Kaggle:
+
+Fake.csv
+
+True.csv
+
+Model Training
+
+python train.py
+
+This script performs:
+
+Dataset loading and labeling
+
+TF-IDF vectorization
+
+Model training and evaluation
+
+Saving trained artifacts
+
+Running the Application
+
+python app.py
+
+Model Details
+
+Algorithm: Logistic Regression
+
+Vectorization: TF-IDF
+
+Task: Binary text classification (Fake vs Real)
+
+Evaluation Metric: Accuracy
+
+Example
+
+Input:
+Breaking: Government announces free electricity for all citizens starting tomorrow
+
+Output:
+Fake
