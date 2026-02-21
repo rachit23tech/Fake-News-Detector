@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Result — Fake News Detector</title>
+    <link rel="stylesheet" href="/static/style.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Result</h1>
+
+      <div class="card">
+        <h2 class="label {{ 'real' if label=='REAL' else 'fake' }}">{{ label }}</h2>
+        {% if confidence is not none %}
+        <p class="confidence">Confidence: {{ (confidence * 100) | round(2) }}%</p>
+        {% endif %}
+        <div class="excerpt">
+          <pre>{{ text }}</pre>
+        </div>
+      </div>
+
+      <a href="/" class="btn secondary">Analyze another</a>
+    </div>
+  </body>
+</html>

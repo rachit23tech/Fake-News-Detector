@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Fake News Detector</title>
+    <link rel="stylesheet" href="/static/style.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>AI Fake News Detector</h1>
+      <form action="/predict" method="post" enctype="multipart/form-data">
+        <label for="news_text">Paste news text</label>
+        <textarea id="news_text" name="news_text" rows="8" placeholder="Paste article text here..."></textarea>
+
+        <div class="or">— or —</div>
+
+        <label for="news_file">Upload text file (.txt)</label>
+        <input id="news_file" name="news_file" type="file" accept=".txt">
+
+        <button type="submit" class="btn">Analyze</button>
+      </form>
+
+      <footer>
+        <small>Model: scikit-learn LogisticRegression · Dark UI</small>
+      </footer>
+    </div>
+  </body>
+</html>
